@@ -38,6 +38,26 @@ namespace ProjectEuler
             }
             Console.WriteLine(sum + 2); // + 2 because the second term is defined outside the for loop
         }
+
+        // Largest Prime Factor
+        static void Problem3()
+        {
+            int[] smallPrimes = { 2, 3, 5, 7 }; // single digit prime factors
+            long number = 600851475143;
+            long[] factors = new long[number / 2];
+            for (int i = 0; i < factors.Length; i++)
+            {
+                foreach (int s in smallPrimes)
+                {
+                    if (number % s == 0 && factors[i-1] != s)
+                    {
+                        number /= s;
+                        factors[i] = s;
+                        break;
+                    }
+                }
+            }
+        }
         static void Main(string[] args)
         {
             Problem2();
