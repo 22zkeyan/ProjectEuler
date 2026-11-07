@@ -3,6 +3,30 @@ namespace ProjectEuler
 {
     internal class Program
     {
+        static long Problem0(long limit)
+        {
+            long[] squareNums = new long[limit];
+            long sum = 0;
+            for (int i = 0; i < limit; i++)
+            {
+                squareNums[i] = (i + 1) * (i + 1);
+                Console.WriteLine($"Square number {i+1}: {squareNums[i]}");
+                //Thread.Sleep(1000);
+                if (squareNums[i] % 2 != 0)
+                {
+                    Console.WriteLine($"{squareNums[i]} is an odd square number");
+                    sum += squareNums[i];
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Sum is now {sum}");
+
+                    //Thread.Sleep(1000);
+                    Console.ResetColor();
+                }
+                Console.WriteLine("");
+            }
+            return sum;
+        }
         // Multiples of 3 or 5
         static void Problem1()
         {
@@ -67,7 +91,8 @@ namespace ProjectEuler
 
         static void Main(string[] args)
         {
-            Problem3();
+            long sum = Problem0(703000);
+            Console.WriteLine(sum);
         }
     }
 }
