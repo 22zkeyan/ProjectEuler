@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Net.NetworkInformation;
+using System.Threading;
 namespace ProjectEuler
 {
     internal class Program
@@ -7,23 +8,23 @@ namespace ProjectEuler
         {
             long[] squareNums = new long[limit];
             long sum = 0;
-            for (int i = 0; i < limit; i++)
+            for (long i = 0; i < limit; i++)
             {
                 squareNums[i] = (i + 1) * (i + 1);
-                Console.WriteLine($"Square number {i+1}: {squareNums[i]}");
+                //Console.WriteLine($"Square number {i+1}: {squareNums[i]}");
                 //Thread.Sleep(1000);
                 if (squareNums[i] % 2 != 0)
                 {
-                    Console.WriteLine($"{squareNums[i]} is an odd square number");
+                    //Console.WriteLine($"{squareNums[i]} is an odd square number");
                     sum += squareNums[i];
 
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"Sum is now {sum}");
+                    //Console.ForegroundColor = ConsoleColor.Green;
+                    //Console.WriteLine($"Sum is now {sum}");
 
                     //Thread.Sleep(1000);
-                    Console.ResetColor();
+                    //Console.ResetColor();
                 }
-                Console.WriteLine("");
+                //Console.WriteLine("");
             }
             return sum;
         }
@@ -64,35 +65,47 @@ namespace ProjectEuler
         }
 
         // Largest Prime Factor
-        static void Problem3()
+
+        //Attempt 1
+        //static void Problem3()
+        //{
+        //    long number = 600851475143;
+        //    long half = number / 2;
+        //    for (int i = 2; i < 10; i++)
+        //    {
+        //        if (half % i == 0)
+        //        {
+        //            half--;
+        //        }
+        //        else if (i == 9 && half % i != 0)
+        //        {
+        //            if (number % half == 0)
+        //            {
+        //                break;
+        //            }
+        //            else
+        //            {
+        //                i = 2;
+        //            }
+        //        }
+        //    }
+        //    Console.WriteLine($"The largest prime factor is {half}");
+        //}
+
+        //Attempt 2
+        static long Problem3(long number)
         {
-            long number = 600851475143;
-            long half = number / 2;
-            for (int i = 2; i < 10; i++)
+            long[] primeNums = new long[number];
+            primeNums[0] = 2;
+            for (long i = 1; i < primeNums.Length; i++)
             {
-                if (half % i == 0)
-                {
-                    half--;
-                }
-                else if (i == 9 && half % i != 0)
-                {
-                    if (number % half == 0)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        i = 2;
-                    }
-                }
+
             }
-            Console.WriteLine($"The largest prime factor is {half}");
         }
 
         static void Main(string[] args)
         {
-            long sum = Problem0(703000);
-            Console.WriteLine(sum);
+            
         }
     }
 }
