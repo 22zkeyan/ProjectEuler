@@ -95,17 +95,37 @@ namespace ProjectEuler
         //Attempt 2
         static long Problem3(long number)
         {
-            long[] primeNums = new long[number];
-            primeNums[0] = 2;
-            for (long i = 1; i < primeNums.Length; i++)
-            {
+            //long[] primeNums = new long[number];
+            //primeNums[0] = 2;
+            //for (long i = 1; i < primeNums.Length; i++)
+            //{
 
+            //}
+            
+        }
+
+        static bool TestPrime(long num)
+        {
+            if (num < 2)
+            {
+                return false;
             }
+            if (num == 2)
+            {
+                return true;
+            }
+            if (num % 2 == 0 || num % 3 == 0)
+            {
+                return false;
+            }
+            long limit = Convert.ToInt32(Math.Sqrt(num));
+            for (long i = 4; i < limit; i++)
         }
 
         static void Main(string[] args)
         {
-            
+            long highestPrimeFactor = Problem3(13195);
+            Console.WriteLine($"here ist thine answer: {highestPrimeFactor}");
         }
     }
 }
